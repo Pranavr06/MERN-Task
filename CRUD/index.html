@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Management - CRUD Application</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Product Management</h1>
+      <p class="subtitle">CRUD Operations on Array of Items</p>
+    </header>
+
+    <!-- Notification message box -->
+    <div id="notification" class="notification hidden"></div>
+
+    <!-- Product Form -->
+    <section class="card form-card">
+      <h2 id="form-title">Add New Product</h2>
+      <form id="product-form">
+        <!-- Hidden input to store product ID when editing -->
+        <input type="hidden" id="product-id" value="" />
+
+        <div class="form-group">
+          <label for="product-name">Name</label>
+          <input
+            type="text"
+            id="product-name"
+            placeholder="e.g. Book"
+            required
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="product-price">Price</label>
+          <input
+            type="number"
+            id="product-price"
+            placeholder="e.g. 250"
+            min="0"
+            step="any"
+            required
+          />
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="submit-btn" class="btn btn-primary">Submit</button>
+          <button type="button" id="cancel-btn" class="btn btn-secondary hidden">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Product Table -->
+    <section class="card table-card">
+      <h2>Product List</h2>
+      <div class="table-responsive">
+        <table id="products-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="products-tbody">
+            <!-- Dynamically populated via script.js -->
+            <tr>
+              <td colspan="4" class="text-center">Loading products...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
